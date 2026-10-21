@@ -1,0 +1,34 @@
+let searchBox = document.getElementById("search");
+let animalCards = document.getElementsByClassName("animal-card");
+
+function searchAnimals() {
+    let searchText = searchBox.value.toLowerCase();
+
+    for (let i = 0; i < animalCards.length; i++) {
+        let animal = animalCards[i];
+        let animalName = animal.getElementsByTagName("h3")[0].innerText;
+        animalName = animalName.toLowerCase();
+
+        if (animalName.includes(searchText)) {
+            animal.style.display = "block";
+        } else {
+            animal.style.display = "none";
+        }
+    }
+}
+
+searchBox.addEventListener("input", searchAnimals);
+
+let helpButton = document.getElementById("helpButton");
+
+if (helpButton) {
+    helpButton.addEventListener("click", function() {
+        alert("Thanks for caring about animals!");
+    });
+}
+
+let pageTitle = document.querySelector("h1");
+
+if (pageTitle) {
+    console.log("Welcome to WildGuard!");
+}
